@@ -1,7 +1,7 @@
 # PowerShell-DynamicParam
 Working with the DynamicParam options in PowerShell
 
-Working with Dynamic Paramters in PowerShell is an incredibly useful improvement.  It used to be very tricky to do this.  Now, however, they make it simple.  If you are reading this, I am assuming you already know about basic paramters, but just in case, I will start there. This ability applies to scripts and functions.  But here, I am going to use it at the script level.
+Working with Dynamic Paramters in PowerShell is an incredibly useful improvement.  If you are reading this, I am assuming you already know about basic paramters, but just in case, I will start there. This ability applies to scripts and functions.  But here, I am going to use it at the script level.
 
 A basic funtion looks like this
 ```PowerShell
@@ -164,7 +164,7 @@ DynamicParam {
         if (-Not $NoR4) {
             AddParam -ParamName "SerialNo"  -HelpMessage "Serial Number, ending in 2"
         }
-        AddParam -ParamName "DeviceProductName" -HelpMessage "Product Model, Kong, Diddy, Atari, Nintendo, Sega" -ValidateSet "Kong", "Diddy", "Atari", "Nintendo", "Sega"
+        AddParam -ParamName "DeviceProductName" -HelpMessage "Product Model, RallyBar, RallyBarMini, TapIP, TapScheduler, RoomMate" -ValidateSet "RallyBar", "RallyBarMini", "TapIP", "TapScheduler", "RoomMate"
         AddParam -ParamName "DeviceBuildTags" -HelpMessage "Build Tags, Test-key or release-key" -ValidateSet "test-keys", "release-keys"
         
     }
