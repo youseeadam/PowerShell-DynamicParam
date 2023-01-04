@@ -110,11 +110,19 @@ Finally, we return the Param Dictionary from the Dynamic Param, and close out th
     Return $Script:paramDictionary
 }
 ```
+Now we need to pull the variables out of the dynamic parameter. Because of how we built them, they are not just identified with a $. So now create some new variables.
+
+```PowerShell
+Begin {
+    $paramDictionary.Values| ForEach-Object {New-Variable -Name $_.Name -Value $_.Value}
+
+}
+```
 
 Then we start our the script process.  I could do this better with begin, process and end, but I would have to re-write a lot for that.
 
 ```PowerShell
-Begin {
+Process {
     Write-Host $DeviceOwner
     Write-Host $SerialNo
     Write-Host $DeviceProductName
@@ -170,7 +178,13 @@ DynamicParam {
     }
     Return $Script:paramDictionary
 }
+
 Begin {
+    $paramDictionary.Values| ForEach-Object {New-Variable -Name $_.Name -Value $_.Value}
+
+}
+
+Process {
     Write-Host $DeviceOwner
     Write-Host $SerialNo
     Write-Host $DeviceProductName
